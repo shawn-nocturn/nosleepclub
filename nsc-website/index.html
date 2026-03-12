@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Sleep Club — Electronic Music Collective</title>
+  <meta name="description" content="No Sleep Club is an electronic music collective curating experiences, developing artists, and building community through quality underground culture — from Toronto to the world.">
+  <meta name="keywords" content="No Sleep Club, NSC, electronic music, collective, events, label, underground, DJ, global">
+  <meta name="author" content="No Sleep Club">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="No Sleep Club">
+  <meta property="og:title" content="No Sleep Club — Electronic Music Collective">
+  <meta property="og:description" content="Curating experiences. Developing artists. Building community. Underground electronic music, from Toronto to the world.">
+  <meta property="og:url" content="https://nosleepclubto.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       NSC — No Sleep Club Website
+       Visual direction: Dark, editorial, restrained
+       Brand kit: Quiet confidence, care at scale
+       ============================================ */
+
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #161616;
+      --bg-elevated: #1a1a1a;
+      --text-primary: #f0f0f0;
+      --text-secondary: #999999;
+      --text-muted: #666666;
+      --accent: #8b5cf6;
+      --accent-hover: #a78bfa;
+      --accent-dim: rgba(139, 92, 246, 0.15);
+      --border: #222222;
+      --border-light: #2a2a2a;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --max-width: 1200px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent-hover); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text-primary); }
+
+    .nav-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-socials a {
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .nav-socials a:hover { color: var(--text-primary); }
+
+    .nav-socials svg { width: 18px; height: 18px; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+      padding: 8px 20px;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 100px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-secondary);
+      color: white;
+    }
+
+    /* ---- SECTION SHARED ---- */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+      border: none;
+    }
+
+    /* ---- ABOUT ---- */
+    #about { background: var(--bg-secondary); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .pillar {
+      padding: 24px;
+      border-left: 3px solid var(--accent);
+      background: var(--bg-card);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .pillar h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .pillar p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ---- EVENTS ---- */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .event-card:hover {
+      border-color: var(--border-light);
+      transform: translateY(-4px);
+    }
+
+    .event-card img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    .event-card-body {
+      padding: 24px;
+    }
+
+    .event-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .event-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      margin: 8px 0 4px;
+    }
+
+    .event-venue {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .event-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    /* ---- FOUNDERS ---- */
+    #founders { background: var(--bg-secondary); }
+
+    .founders-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .founder-card {
+      text-align: center;
+    }
+
+    .founder-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 16px;
+      filter: grayscale(30%);
+      transition: filter var(--transition);
+    }
+
+    .founder-card:hover .founder-img { filter: grayscale(0%); }
+
+    .founder-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .founder-role {
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .founder-socials {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .founder-socials a {
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .founder-socials a:hover { color: var(--text-primary); }
+    .founder-socials svg { width: 16px; height: 16px; }
+
+    /* ---- LISTEN ---- */
+    .listen-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .listen-embed {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .listen-embed iframe {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .live-sets-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .live-set-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .live-set-item iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ---- MERCH ---- */
+    #merch { background: var(--bg-secondary); }
+
+    .merch-placeholder {
+      text-align: center;
+      padding: 80px 24px;
+      border: 2px dashed var(--border-light);
+      border-radius: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .merch-placeholder h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .merch-placeholder p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* ---- MAILING LIST ---- */
+    .mailing-section {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 64px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mailing-section h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .mailing-section p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-size: 16px;
+    }
+
+    .mailing-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .mailing-form input[type="email"] {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .mailing-form input[type="email"]::placeholder {
+      color: var(--text-muted);
+    }
+
+    .mailing-form input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+
+    .mailing-form button {
+      padding: 14px 28px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+
+    .mailing-form button:hover { background: var(--accent-hover); }
+
+    .mailing-success {
+      display: none;
+      color: var(--accent);
+      font-size: 15px;
+      margin-top: 16px;
+    }
+
+    .mailing-privacy {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      padding: 64px 0 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 8px;
+      max-width: 280px;
+    }
+
+    .footer-links-grid {
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover { color: var(--text-primary); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .footer-socials a:hover { color: var(--text-primary); }
+    .footer-socials svg { width: 18px; height: 18px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .founders-grid { grid-template-columns: repeat(2, 1fr); }
+      .listen-layout { grid-template-columns: 1fr; }
+      .footer-links-grid { gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-socials { display: none; }
+      .mobile-toggle { display: block; }
+
+      section { padding: 80px 0; }
+
+      .hero { min-height: 90vh; padding: 100px 24px 60px; }
+      .hero h1 { letter-spacing: -2px; }
+
+      .events-grid { grid-template-columns: 1fr; }
+      .founders-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+      .mailing-section { padding: 40px 24px; }
+      .mailing-form { flex-direction: column; }
+      .mailing-form button { width: 100%; }
+
+      .footer-top { flex-direction: column; }
+      .footer-links-grid { gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .founders-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+      .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+      .stat-item { padding: 16px 8px; }
+      .stat-number { font-size: 24px; }
+    }
+
+    /* ---- ANIMATIONS ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-logo"><img src="images/logo.png" alt="No Sleep Club" style="height:40px;width:auto;"></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#founders">Team</a></li>
+        <li><a href="#listen">Listen</a></li>
+        <li><a href="#merch">Merch</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-socials">
+        <a href="https://www.instagram.com/nosleepclubto/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://soundcloud.com/nosleepclub" target="_blank" rel="noopener" aria-label="SoundCloud">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11c0-.6.4-1 1-1s1 .4 1 1v7c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V9c0-.6.4-1 1-1s1 .4 1 1v9c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V7c0-.6.4-1 1-1s1 .4 1 1v11c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V8c0-.6.4-1 1-1s1 .4 1 1v10c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V5c0-.6.4-1 1-1s1 .4 1 1v13c0 .6-.4 1-1 1s-1-.4-1-1zm4.5 1c-2.5 0-4.5-2-4.5-4.5S15 10 17.5 10c.8 0 1.5.2 2.2.5C20.3 8.4 22 7 24 7v12c-1.4 0-2.5-1.1-2.5-2.5V18h-4z"/></svg>
+        </a>
+        <a href="https://open.spotify.com/playlist/4CXf3O0ckblfVfz7st7KWB" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@nosleepclubto" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.89a8.28 8.28 0 0 0 4.84 1.56V7.01a4.84 4.84 0 0 1-1.08-.32z"/></svg>
+        </a>
+      </div>
+      <button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">&times;</button>
+    <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+    <a href="#events" onclick="document.getElementById('mobileMenu').classList.remove('open')">Events</a>
+    <a href="#founders" onclick="document.getElementById('mobileMenu').classList.remove('open')">Team</a>
+    <a href="#listen" onclick="document.getElementById('mobileMenu').classList.remove('open')">Listen</a>
+    <a href="#merch" onclick="document.getElementById('mobileMenu').classList.remove('open')">Merch</a>
+    <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Toronto-born. Globally minded.</div>
+      <h1>No Sleep<br>Club</h1>
+      <p>Curating experiences. Developing artists. Building community. An underground electronic music collective with a global vision.</p>
+      <div class="hero-ctas">
+        <a href="#events" class="btn-primary">Upcoming Events</a>
+        <a href="#listen" class="btn-secondary">Listen Now</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-in">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Care at Scale</h2>
+          <p class="section-subtitle" style="margin-bottom: 24px;">
+            Born in Toronto, building for the world. No Sleep Club is an electronic music collective that curates experiences, develops artists, and builds community through quality underground culture.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+            We are not a booking agency, a venue, or a pop-up event generator. We are a taste-making institution that operates across events, artist development, label releases, merchandise, and cultural partnerships — with the same values embedded in every output.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+            We think in decades, not quarters. Every decision is filtered through a single question: "Would we be proud of this in 5 years?"
+          </p>
+          <!-- VALUES -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:8px;">
+            <div style="padding:16px 20px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);">
+              <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent);margin-bottom:4px;">Discerning</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">We know the difference between quality and hype.</div>
+            </div>
+            <div style="padding:16px 20px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);">
+              <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent);margin-bottom:4px;">Underground</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">We live in the culture, not above it.</div>
+            </div>
+            <div style="padding:16px 20px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);">
+              <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent);margin-bottom:4px;">Care-Forward</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">Every decision is rooted in care for artists, audiences, and the culture.</div>
+            </div>
+            <div style="padding:16px 20px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);">
+              <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent);margin-bottom:4px;">Intentional</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">We make choices, not defaults. Nothing is accidental.</div>
+            </div>
+            <div style="padding:16px 20px;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-card);">
+              <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent);margin-bottom:4px;">Consistent</div>
+              <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">We show up the same way every time. Trust is built through repetition.</div>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">23+</div>
+              <div class="stat-label">Roster Artists</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">8+</div>
+              <div class="stat-label">Venue Partners</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Collective Collabs</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-pillars fade-in">
+          <div class="pillar">
+            <h4>Events</h4>
+            <p>Intentionally designed experiences where every detail — sound, lighting, capacity, artist pairing — is curated with purpose.</p>
+          </div>
+          <div class="pillar">
+            <h4>Label <span style="font-size:11px;color:var(--accent);font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-left:8px;">Coming Soon</span></h4>
+            <p>A future home for releases that represent depth and patience in production. Our label will tell a story about what we believe electronic music can be — built on the same values that drive everything we do.</p>
+          </div>
+          <div class="pillar">
+            <h4>Artist Development</h4>
+            <p>We don't just book DJs. We work with artists across multiple platforms — events, releases, mentorship, collaborations — to build lasting careers.</p>
+          </div>
+          <div class="pillar">
+            <h4>Community</h4>
+            <p>Our events create space for people to contribute, not just consume. We build relationships with audiences, artists, and collaborators that deepen over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Events</div>
+        <h2 class="section-title">What's Coming</h2>
+        <p class="section-subtitle">Every event has a concept. Every artist is chosen because they fit the story we're telling.</p>
+      </div>
+      <div class="events-grid">
+        <!-- EVENT 1: NSC at Bibliotheque -->
+        <div class="event-card fade-in">
+          <img src="images/nsc-feb27.jpg" alt="No Sleep Club at Bibliotheque — February 27, 2026" style="width:100%;aspect-ratio:4/5;object-fit:cover;" loading="lazy">
+          <div class="event-card-body">
+            <div class="event-date">February 27, 2026</div>
+            <h3 class="event-name">No Sleep Club</h3>
+            <p class="event-venue">Bibliotheque — 335 Richmond St W</p>
+            <a href="https://partiful.com/e/NP3hNHX182vpL7zWWXwi" class="btn-primary" target="_blank" rel="noopener">RSVP</a>
+          </div>
+        </div>
+        <!-- EVENT 2: Lucky After Dark -->
+        <div class="event-card fade-in">
+          <img src="images/lucky-after-dark.jpg" alt="Lucky After Dark — March 14, 2026" style="width:100%;aspect-ratio:4/5;object-fit:cover;" loading="lazy">
+          <div class="event-card-body">
+            <div class="event-date">March 14, 2026</div>
+            <h3 class="event-name">Lucky After Dark</h3>
+            <p class="event-venue">Purple Room Inside Rebel — 10PM–3AM</p>
+            <a href="https://www.ticketweb.ca/event/lucky-after-dark-in-purple-rebel-tickets/14188694" class="btn-primary" target="_blank" rel="noopener">Get Tickets</a>
+          </div>
+        </div>
+        <!-- PLACEHOLDER -->
+        <div class="event-card fade-in" style="border-style:dashed;display:flex;align-items:center;justify-content:center;min-height:400px;">
+          <div style="text-align:center;padding:32px;">
+            <div style="font-size:48px;margin-bottom:16px;opacity:0.3;">+</div>
+            <p style="color:var(--text-muted);font-size:14px;">More events announced soon.<br>Join the mailing list to hear first.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAST EVENTS -->
+      <div style="margin-top:64px;" class="fade-in">
+        <h3 style="font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:24px;color:var(--text-secondary);">Past Events</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:16px;">
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/polar-room.jpg" alt="Polar Room — January 2026" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/rello.jpg" alt="Rello — November 2025" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/fearworks.jpg" alt="Fearworks Festival — October 2025" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/takeover-fridays.jpg" alt="Takeover Fridays — September 2025" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/mirage.jpg" alt="Mirage — July 2025" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+          <div style="border-radius:12px;overflow:hidden;"><img src="images/heatwaves.jpg" alt="Heatwaves Music Fest — July 2025" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- FOUNDERS -->
+  <section id="founders">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">The Team</div>
+        <h2 class="section-title">Founding Members</h2>
+        <p class="section-subtitle">Four people who've spent years building relationships across electronic music culture — rooted in Toronto, reaching everywhere.</p>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card fade-in">
+          <img class="founder-img" src="images/shawn-qanun.jpg" alt="LockEight — Co-Founder of No Sleep Club" loading="lazy">
+          <div class="founder-name">LockEight</div>
+          <div class="founder-role">Co-Founder, DJ, Producer</div>
+          <div class="founder-socials">
+            <a href="https://www.instagram.com/lockeightmusic/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://soundcloud.com/lockeight" target="_blank" rel="noopener" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11l1-1v9l-1-1zm3 1h1V8H4v11zm3 0h1V6H7v13zm3 0h1V8h-1v11zm3 0h1V2h-1v17zm3 0V8c2.2 0 4 1.8 4 4v3c0 2.2-1.8 4-4 4z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="founder-card fade-in">
+          <img class="founder-img" src="images/massimo-bucci.jpg" alt="Massimo Bucci — Co-Founder of No Sleep Club" loading="lazy">
+          <div class="founder-name">Massimo Bucci</div>
+          <div class="founder-role">Co-Founder, DJ, Producer</div>
+          <div class="founder-socials">
+            <a href="https://www.instagram.com/massbucci/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://soundcloud.com/bucci_mass10" target="_blank" rel="noopener" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11l1-1v9l-1-1zm3 1h1V8H4v11zm3 0h1V6H7v13zm3 0h1V8h-1v11zm3 0h1V2h-1v17zm3 0V8c2.2 0 4 1.8 4 4v3c0 2.2-1.8 4-4 4z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="founder-card fade-in">
+          <img class="founder-img" src="images/jared-hines.jpg" alt="Jared Hines — Co-Founder of No Sleep Club" loading="lazy">
+          <div class="founder-name">Jared Hines</div>
+          <div class="founder-role">Co-Founder, DJ, Producer</div>
+          <div class="founder-socials">
+            <a href="https://www.instagram.com/jhinesmusic/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://soundcloud.com/jhinesmusic" target="_blank" rel="noopener" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11l1-1v9l-1-1zm3 1h1V8H4v11zm3 0h1V6H7v13zm3 0h1V8h-1v11zm3 0h1V2h-1v17zm3 0V8c2.2 0 4 1.8 4 4v3c0 2.2-1.8 4-4 4z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@jhinesmusic" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.87a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="founder-card fade-in">
+          <img class="founder-img" src="images/sivan-dubinsky.jpg" alt="Sivan Dubinsky — Co-Founder of No Sleep Club" loading="lazy">
+          <div class="founder-name">Sivan Dubinsky</div>
+          <div class="founder-role">Co-Founder, DJ, Producer</div>
+          <div class="founder-socials">
+            <a href="https://www.instagram.com/music.siv/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://soundcloud.com/user-362975390" target="_blank" rel="noopener" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11l1-1v9l-1-1zm3 1h1V8H4v11zm3 0h1V6H7v13zm3 0h1V8h-1v11zm3 0h1V2h-1v17zm3 0V8c2.2 0 4 1.8 4 4v3c0 2.2-1.8 4-4 4z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@siv.music" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.87a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- LISTEN -->
+  <section id="listen">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-label">Listen</div>
+        <h2 class="section-title">The Sound</h2>
+        <p class="section-subtitle">Curated playlists and live sets from NSC events.</p>
+      </div>
+      <div class="listen-layout fade-in">
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:16px;">NSC Playlist</h3>
+          <div class="listen-embed">
+            <iframe src="https://open.spotify.com/embed/playlist/4CXf3O0ckblfVfz7st7KWB?utm_source=generator&theme=0" width="100%" height="452" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:12px;"></iframe>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:16px;">Live Sets</h3>
+          <div class="live-sets-grid">
+            <div class="live-set-item">
+              <iframe src="https://www.youtube.com/embed/p1IeS8olUmo" title="Bucci B2B J.Hines — Polar Room Toronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="live-set-item">
+              <iframe src="https://www.youtube.com/embed/PgSIMbbsx04" title="Derose B2B Siv — Polar Room Toronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="live-set-item">
+              <iframe src="https://www.youtube.com/embed/UHncn16MVIY" title="LockEight B2B Davey — Polar Room Toronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- MERCH -->
+  <section id="merch">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;">
+        <div class="section-label">Merch</div>
+        <h2 class="section-title">Wear the Culture</h2>
+      </div>
+      <div class="merch-placeholder fade-in">
+        <h3>Coming Soon</h3>
+        <p>Designed for raves and also actual sleep deprivation. Drop one is in production.</p>
+        <a href="#contact" class="btn-secondary">Get Notified</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- MAILING LIST -->
+  <section id="contact">
+    <div class="container">
+      <div class="mailing-section fade-in">
+        <h3>Join the Club</h3>
+        <p>First access to events, releases, and merch drops. No spam, just signal.</p>
+        <form class="mailing-form" id="mailingForm" onsubmit="handleSignup(event)">
+          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit">Join</button>
+        </form>
+        <p class="mailing-success" id="mailingSuccess">You're in. Welcome to the club.</p>
+        <p class="mailing-privacy">We respect your inbox. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo"><img src="images/logo.png" alt="No Sleep Club" style="height:36px;width:auto;"></div>
+          <p>Electronic music collective. Curating experiences, developing artists, building community — from Toronto to the world.</p>
+        </div>
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h5>Navigate</h5>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#events">Events</a></li>
+              <li><a href="#founders">Team</a></li>
+              <li><a href="#listen">Listen</a></li>
+              <li><a href="#merch">Merch</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Connect</h5>
+            <ul>
+              <li><a href="https://www.instagram.com/nosleepclubto/" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://soundcloud.com/nosleepclub" target="_blank" rel="noopener">SoundCloud</a></li>
+              <li><a href="https://open.spotify.com/playlist/4CXf3O0ckblfVfz7st7KWB" target="_blank" rel="noopener">Spotify</a></li>
+              <li><a href="https://www.tiktok.com/@nosleepclubto" target="_blank" rel="noopener">TikTok</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Inquiries</h5>
+            <ul>
+              <li><a href="mailto:nosleepclubto@gmail.com">nosleepclubto@gmail.com</a></li>
+              <li><a href="#">Booking</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 No Sleep Club. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/nosleepclubto/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://soundcloud.com/nosleepclub" target="_blank" rel="noopener" aria-label="SoundCloud">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V11c0-.6.4-1 1-1s1 .4 1 1v7c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V9c0-.6.4-1 1-1s1 .4 1 1v9c0 .6-.4 1-1 1s-1-.4-1-1zm3 0V7c0-.6.4-1 1-1s1 .4 1 1v11c0 .6-.4 1-1 1s-1-.4-1-1z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/playlist/4CXf3O0ckblfVfz7st7KWB" target="_blank" rel="noopener" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@nosleepclubto" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.89a8.28 8.28 0 0 0 4.84 1.56V7.01a4.84 4.84 0 0 1-1.08-.32z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- SCROLL ANIMATIONS ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ---- SMOOTH NAV SCROLL ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ---- MAILING LIST HANDLER ----
+    // SETUP INSTRUCTIONS:
+    // 1. Create a free Mailchimp account at mailchimp.com
+    // 2. Create an Audience (list)
+    // 3. Go to Audience > Signup forms > Embedded forms
+    // 4. Copy the form action URL (looks like: https://XXXXX.us21.list-manage.com/subscribe/post?u=XXXX&id=XXXX)
+    // 5. Replace MAILCHIMP_FORM_ACTION_URL below with your URL
+    //
+    // OR for Vercel: This form will work as a simple client-side capture.
+    // You can also connect it to Vercel serverless functions or any API.
+
+    const MAILCHIMP_URL = ''; // ← Paste your Mailchimp form action URL here
+
+    function handleSignup(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+
+      if (MAILCHIMP_URL) {
+        // If Mailchimp is configured, submit via JSONP
+        const url = MAILCHIMP_URL.replace('/post?', '/post-json?') + '&EMAIL=' + encodeURIComponent(email) + '&c=mailchimpCallback';
+        const script = document.createElement('script');
+        script.src = url;
+        document.body.appendChild(script);
+      }
+
+      // Show success message regardless (for now)
+      e.target.style.display = 'none';
+      document.getElementById('mailingSuccess').style.display = 'block';
+
+      // Log to console for development
+      console.log('Email signup:', email);
+    }
+
+    // Mailchimp JSONP callback
+    function mailchimpCallback(data) {
+      console.log('Mailchimp response:', data);
+    }
+
+    // ---- NAV ACTIVE STATE ----
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) {
+          if (scrollY >= top && scrollY < top + height) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
