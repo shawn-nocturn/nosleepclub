@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner with No Sleep Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-elevated: #1a1a1a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #999999;
+            --text-muted: #666666;
+            --accent: #8b5cf6;
+            --accent-hover: #a78bfa;
+            --accent-dim: rgba(139, 92, 246, 0.15);
+            --accent-glow: rgba(139, 92, 246, 0.08);
+            --green: #22c55e;
+            --green-dim: rgba(34, 197, 94, 0.12);
+            --border: #222222;
+            --border-light: #2a2a2a;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --max-width: 1000px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ── Confidential Banner ── */
+        .confidential-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            padding: 8px 24px;
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-hover);
+            z-index: 100;
+            backdrop-filter: blur(16px);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            max-width: 720px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .hero-stat-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border-light);
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 100px 24px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 640px;
+        }
+
+        .alt-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── ROI Section ── */
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .roi-card {
+            padding: 36px 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .roi-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .roi-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.04) 100%);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .roi-highlight {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .roi-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .roi-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .roi-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .roi-tag.revenue {
+            color: var(--green);
+            background: var(--green-dim);
+        }
+
+        .roi-tag.exposure {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* ── What We Handle ── */
+        .handle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .handle-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-card);
+        }
+
+        .handle-check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--green-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .handle-item h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .handle-item p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Venue Partners ── */
+        .venue-marquee {
+            margin-top: 48px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .venue-pill {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 100px;
+            transition: var(--transition);
+        }
+
+        .venue-pill:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            color: var(--text-primary);
+        }
+
+        /* ── Stats Row ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 28px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Events Timeline ── */
+        .events-list {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .event-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            align-items: center;
+            gap: 32px;
+            padding: 18px 28px;
+            background: var(--bg-card);
+            transition: var(--transition);
+        }
+
+        .event-row:hover {
+            background: var(--bg-elevated);
+        }
+
+        .event-name {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .event-venue {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .event-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .event-tag.sold-out {
+            color: var(--green);
+            background: var(--green-dim);
+        }
+
+        /* ── Format Options ── */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .format-card {
+            padding: 36px 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .format-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .format-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .format-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .format-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .format-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .format-details li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .format-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* ── About Brief ── */
+        .about-brief {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .about-value {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+        }
+
+        .about-value-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .about-value span {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .section-title {
+            max-width: 500px;
+            margin: 0 auto 16px;
+        }
+
+        .cta-section .section-text {
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--accent);
+            padding: 16px 44px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            letter-spacing: -0.01em;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-sub {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero-stat-divider {
+                width: 32px;
+                height: 1px;
+            }
+            .roi-grid,
+            .handle-grid,
+            .format-grid {
+                grid-template-columns: 1fr;
+            }
+            .roi-card.featured {
+                grid-column: auto;
+            }
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .about-brief {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .event-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+                padding: 14px 20px;
+            }
+            .event-tag {
+                justify-self: start;
+            }
+            section {
+                padding: 64px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confidential-bar">Partnership Inquiry — Confidential</div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO                                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-badge">Venue Partnership</div>
+        <h1>Your space. Our people. <span>Everything handled.</span></h1>
+        <p class="hero-sub">No Sleep Club is a Toronto-based electronic music collective — minimal house and tech house, all underground. We bring 150–250 people to every event with production, promotion, and talent handled end-to-end. Flexible on terms. Built around what works for your space.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number">20+</div>
+                <div class="hero-stat-label">Events in 12 months</div>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">150–250</div>
+                <div class="hero-stat-label">Avg. attendance</div>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">10+</div>
+                <div class="hero-stat-label">Venue partners</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- WHAT'S IN IT FOR YOU — ROI                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="alt-section">
+        <div class="container fade-in">
+            <div class="section-label">What's in it for you</div>
+            <div class="section-title">Guaranteed bodies. Flexible terms. Zero overhead.</div>
+            <div class="roi-grid">
+                <div class="roi-card featured">
+                    <div class="roi-tag revenue">Revenue</div>
+                    <div class="roi-highlight">150–250 people in your room. Every event.</div>
+                    <p>Not walk-ins. Ticket-buyers — 21–30, underground electronic music community, Toronto-based. They show up early and stay late. At peak events we've pushed close to 1,000. This is a built-in crowd that doesn't exist without us.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-tag revenue">Revenue</div>
+                    <h3>Flexible Terms</h3>
+                    <p>We typically work on a venue fee or a ticket revenue split — whatever fits your business. Bar is open too: you run yours and keep the revenue, we bring one in, or we go without. No rigid model. We build around your space, not the other way around.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-tag revenue">Revenue</div>
+                    <h3>Off-Peak Revenue, Repeat Traffic</h3>
+                    <p>Daytime pop-ups and weeknight events that fill hours you'd otherwise run slow. NSC builds community, not one-offs — our audience discovers your venue through us, then comes back on their own.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-tag exposure">Exposure</div>
+                    <h3>100K+ Impressions. Pointed at You.</h3>
+                    <p>We handle all promotion — social content, reels, flyers, email blasts, word of mouth. 100K+ impressions in the last 30 days. When we tag your venue, that entire audience sees your space through our lens.</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-tag exposure">Exposure</div>
+                    <h3>New Audience Discovery</h3>
+                    <p>21–30, culturally plugged in, always looking for new spots. A partnership puts your venue on the map for a demographic that shares where they go — not just shows up once.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- WHAT WE HANDLE — ZERO OVERHEAD              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section>
+        <div class="container fade-in">
+            <div class="section-label">Zero overhead</div>
+            <div class="section-title">We handle everything. You open the doors.</div>
+            <p class="section-text">This isn't a "can we borrow your space" ask. Full-service partnership — every detail curated with purpose. Here's what we take off your plate:</p>
+            <div class="handle-grid">
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Sound & Production</h4>
+                        <p>Our own sound, lighting, and production rig. Your team doesn't touch a thing.</p>
+                    </div>
+                </div>
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Full Promotion</h4>
+                        <p>Social, flyers, email, word of mouth. Every ticket sale driven by us.</p>
+                    </div>
+                </div>
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Talent Booking</h4>
+                        <p>23+ roster artists — minimal house and tech house. We curate, book, manage, and pay the lineup.</p>
+                    </div>
+                </div>
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Ticketing & Door</h4>
+                        <p>Ticketing, door lists, check-in — all handled. No stress on your staff.</p>
+                    </div>
+                </div>
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Crowd Management</h4>
+                        <p>Respectful by design. We set the tone — our audience follows it.</p>
+                    </div>
+                </div>
+                <div class="handle-item">
+                    <div class="handle-check">✓</div>
+                    <div>
+                        <h4>Setup & Teardown</h4>
+                        <p>We arrive early, build out, break down after. Your space returned exactly how we found it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FORMAT OPTIONS                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="alt-section">
+        <div class="container fade-in">
+            <div class="section-label">Flexible formats</div>
+            <div class="section-title">Day or night. We build around your space.</div>
+            <p class="section-text">Every room is different. We tailor the experience to your capacity, your hours, your audience.</p>
+            <div class="format-grid">
+                <div class="format-card">
+                    <div class="format-label">Daytime</div>
+                    <h3>Afternoon Pop-Up</h3>
+                    <p>Curated session for patios, rooftops, and spaces that don't typically do nightlife. Restrained production, quality sound, a crowd that respects the room.</p>
+                    <ul class="format-details">
+                        <li>Typically 2PM – 8PM</li>
+                        <li>Lighter production footprint</li>
+                        <li>Ideal for restaurants, patios, rooftops</li>
+                        <li>Fills off-peak hours with paying guests</li>
+                    </ul>
+                </div>
+                <div class="format-card">
+                    <div class="format-label">Nighttime</div>
+                    <h3>Full Takeover</h3>
+                    <p>The full NSC experience — production, stacked lineup, a room that moves. This is what we're known for. This is why venues keep inviting us back.</p>
+                    <ul class="format-details">
+                        <li>Typically 10PM – 3AM</li>
+                        <li>Full sound and lighting rig</li>
+                        <li>Multi-DJ lineup from our roster</li>
+                        <li>Consistently draws 150–250+ guests</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SOCIAL PROOF — VENUES                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section>
+        <div class="container fade-in">
+            <div class="section-label">Trusted by</div>
+            <div class="section-title">Venues and collectives we've partnered with.</div>
+            <p class="section-text">Intimate bars to large-format rooms. Collectives to festival stages. Every partnership built on mutual respect and a shared standard.</p>
+            <div style="margin-bottom: 12px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">Venues</div>
+            <div class="venue-marquee">
+                <div class="venue-pill">Rebel</div>
+                <div class="venue-pill">Rivoli</div>
+                <div class="venue-pill">Bibliothèque</div>
+                <div class="venue-pill">St. John's Tavern</div>
+                <div class="venue-pill">La Piscina</div>
+                <div class="venue-pill">Supermarket</div>
+                <div class="venue-pill">Nomad</div>
+                <div class="venue-pill">Water Works</div>
+                <div class="venue-pill">Hotel X</div>
+                <div class="venue-pill">Parc Ave</div>
+                <div class="venue-pill">+ more</div>
+            </div>
+            <div style="margin-top: 24px; margin-bottom: 12px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">Collectives</div>
+            <div class="venue-marquee">
+                <div class="venue-pill">Dopamine Machine</div>
+                <div class="venue-pill">Premiere Music Group</div>
+                <div class="venue-pill">Overlord</div>
+                <div class="venue-pill">+ more</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TRACK RECORD                                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="alt-section">
+        <div class="container fade-in">
+            <div class="section-label">Recent events</div>
+            <div class="section-title">Rooms filled. Standards kept.</div>
+            <div class="events-list">
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Lucky After Dark</div>
+                        <div class="event-venue">March 2026</div>
+                    </div>
+                    <div class="event-tag sold-out">Sold Out</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">NSC at Bibliothèque</div>
+                        <div class="event-venue">February 2026</div>
+                    </div>
+                    <div class="event-tag sold-out">Debut Takeover</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Polar Room</div>
+                        <div class="event-venue">January 2026</div>
+                    </div>
+                    <div class="event-tag sold-out">Sold Out</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Rello</div>
+                        <div class="event-venue">November 2025</div>
+                    </div>
+                    <div class="event-tag">Venue Partner</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Fearworks Festival</div>
+                        <div class="event-venue">October 2025</div>
+                    </div>
+                    <div class="event-tag">Festival</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Takeover Fridays</div>
+                        <div class="event-venue">September 2025</div>
+                    </div>
+                    <div class="event-tag">Residency</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Heatwaves Music Fest</div>
+                        <div class="event-venue">July 2025</div>
+                    </div>
+                    <div class="event-tag">Festival</div>
+                </div>
+                <div class="event-row">
+                    <div>
+                        <div class="event-name">Mirage</div>
+                        <div class="event-venue">July 2025</div>
+                    </div>
+                    <div class="event-tag sold-out">Sold Out</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- WHO WE ARE — BRIEF                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section>
+        <div class="container fade-in">
+            <div class="section-label">About No Sleep Club</div>
+            <div class="section-title">Care at scale.</div>
+            <div class="about-brief">
+                <div class="about-text">
+                    No Sleep Club is a Toronto electronic music collective — minimal house and tech house, all underground. Founded by Shawn Qanun, Massimo Bucci, Jared Hines, and Sivan Dubinsky. In one year: 23+ roster artists, 10+ venue partnerships, 2 festivals, and a community that shows up every time. We think in decades, not quarters. Every venue we partner with, we treat like our own — because our reputation depends on it.
+                </div>
+                <div class="about-values">
+                    <div class="about-value">
+                        <div class="about-value-dot"></div>
+                        <span>Discerning — quality over quantity, always</span>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-dot"></div>
+                        <span>Care-Forward — we protect your space and brand</span>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-dot"></div>
+                        <span>Consistent — same standard, every single event</span>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-dot"></div>
+                        <span>Underground — culturally credible, not corporate</span>
+                    </div>
+                    <div class="about-value">
+                        <div class="about-value-dot"></div>
+                        <span>Intentional — every detail is considered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CTA                                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="cta-section">
+        <div class="container fade-in">
+            <div class="section-label">Let's talk</div>
+            <div class="section-title">We'd love to see your space.</div>
+            <p class="section-text">No commitments. Just a conversation about what this could look like — and whether we're the right fit for each other.</p>
+            <a href="mailto:nosleepclubto@gmail.com?subject=Venue%20Partnership%20Inquiry" class="cta-button">Get In Touch</a>
+            <p class="cta-sub">nosleepclubto@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>No Sleep Club © 2026 — Toronto, Canada &nbsp;·&nbsp; This page is confidential and intended for prospective venue partners only.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
